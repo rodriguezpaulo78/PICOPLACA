@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Mi Placa</string>
+    <string name="buscar">Buscar</string>
+    <string name="listar">Listar Placas</string>
+    <string name="copia">Copia de Seguridad</string>
+    <string name="cargar">Cargar</string>
+    <string name="home">Volver</string>
+    <string name="title_activity_listar_placas">ListarPlacas</string>
+    <string name="agregar">Agregar Placa</string>
+    <string name="borrar">Borrar Placa</string>
+    <string name="title_activity_alerta">Alerta</string>
+    <string name="title_activity_copia_seguridad">Copia Seguridad</string>
+    <string name="desactivar">Desactivar Notificacion</string>
+    <string name="caminar">Estoy Caminando</string>
+</resources>

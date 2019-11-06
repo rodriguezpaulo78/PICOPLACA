@@ -1,0 +1,39 @@
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools" tools:context=".MainActivity">
+
+
+    <item android:id="@+id/agregar"
+        android:title="@string/agregar"
+        android:icon="@android:drawable/ic_menu_add"
+        app:showAsAction="always"
+        />
+
+    <item android:id="@+id/buscar"
+        android:title="@string/buscar"
+        android:icon="@android:drawable/ic_menu_search"
+        app:showAsAction="always"
+        app:actionViewClass="android.support.v7.widget.SearchView" />
+
+    <item android:id="@+id/caminar"
+        android:title="@string/caminar"
+        android:icon="@android:drawable/ic_menu_myplaces"
+        app:showAsAction="always"
+        />
+
+    <item android:id="@+id/borrar"
+        android:title="@string/borrar"
+        android:icon="@android:drawable/ic_menu_delete"
+        app:showAsAction="never"
+        />
+
+    <item
+        android:id="@+id/copia" android:icon="@android:drawable/ic_dialog_info"
+        app:showAsAction="never" android:title="@string/copia">
+    </item>
+    <item
+        android:id="@+id/cargar" android:icon="@android:drawable/ic_menu_save"
+        app:showAsAction="never" android:title="@string/cargar"/>
+
+
+</menu>

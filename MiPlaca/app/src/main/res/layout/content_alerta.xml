@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    app:layout_behavior="@string/appbar_scrolling_view_behavior"
+    tools:context=".Alerta"
+    tools:showIn="@layout/activity_alerta">
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="298dp"
+        android:layout_height="226dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="10pt"
+        android:src="@drawable/alerta"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="69dp"
+        android:orientation="vertical">
+
+        <CheckBox
+            android:id="@+id/checkBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Notificaciones Activadas"
+            android:layout_marginStart="@dimen/margin_start_button"
+            android:layout_marginTop="12pt"
+            android:layout_marginEnd="@dimen/margin_end_button"
+            android:buttonTint="#82B2E7"/>
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:orientation="vertical"
+        android:layout_margin="10pt">
+
+        <TextView
+            android:id="@+id/textView9"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:text="Asegurate de no ingresar al Centro Historico Hoy" />
+
+        <ImageView
+            android:id="@+id/imageView5"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/prueba2" />
+    </LinearLayout>
+</LinearLayout>

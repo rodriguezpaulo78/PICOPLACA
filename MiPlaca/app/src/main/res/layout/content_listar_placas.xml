@@ -1,0 +1,199 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    tools:context=".MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="left"
+        android:layout_marginTop="20pt"
+        android:orientation="vertical">
+
+        <TextView
+            android:id="@+id/textView"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="12pt"
+            android:text="Tabla de Restricciones"
+            android:textSize="@dimen/size_title"
+            android:textAlignment="center"/>
+
+        <TableLayout
+            android:layout_width="327dp"
+            android:layout_height="wrap_content"
+            android:layout_margin="10pt"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="1.0">
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border">
+
+                <TextView
+                    android:background="@drawable/border"
+                    android:padding="3dip"
+                    android:text="Lunes" />
+
+                <TextView
+                    android:background="@drawable/border"
+                    android:gravity="left"
+                    android:padding="3dip"
+                    android:text="Placas que empiecen en 0 y 1" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border">
+
+                <TextView
+                    android:layout_width="88dp"
+                    android:background="@drawable/border"
+                    android:padding="3dip"
+                    android:text="Martes" />
+
+                <TextView
+                    android:layout_width="239dp"
+                    android:background="@drawable/border"
+                    android:gravity="left"
+                    android:padding="3dip"
+                    android:text="Placas que empiecen en 2 y 3" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border">
+
+                <TextView
+                    android:layout_width="88dp"
+                    android:background="@drawable/border"
+                    android:padding="3dip"
+                    android:text="Miercoles" />
+
+                <TextView
+                    android:layout_width="239dp"
+                    android:background="@drawable/border"
+                    android:gravity="left"
+                    android:padding="3dip"
+                    android:text="Placas que empiecen en 4 y 5" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border">
+
+                <TextView
+                    android:layout_width="88dp"
+                    android:background="@drawable/border"
+                    android:padding="3dip"
+                    android:text="Jueves" />
+
+                <TextView
+                    android:layout_width="239dp"
+                    android:background="@drawable/border"
+                    android:gravity="left"
+                    android:padding="3dip"
+                    android:text="Placas que empiecen en 6 y 7" />
+            </TableRow>
+
+            <TableRow
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:background="@drawable/border">
+
+                <TextView
+                    android:layout_width="88dp"
+                    android:background="@drawable/border"
+                    android:padding="3dip"
+                    android:text="Viernes" />
+
+                <TextView
+                    android:layout_width="239dp"
+                    android:background="@drawable/border"
+                    android:gravity="left"
+                    android:padding="3dip"
+                    android:text="Placas que empiecen en 8 y 9" />
+            </TableRow>
+        </TableLayout>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6pt">
+
+        <ImageView
+            android:id="@+id/imageView"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/foto1" />
+
+        <Switch
+            android:id="@+id/switch1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5pt"
+            android:layout_marginTop="10pt"
+            android:text="Mama - Carro1"
+            android:textColorLink="#2E82D5"
+            android:theme="@style/colorsw"/>
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6pt">
+
+        <ImageView
+            android:id="@+id/imageView2"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/foto2" />
+
+        <Switch
+            android:id="@+id/switch2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5pt"
+            android:layout_marginTop="10pt"
+            android:text="Papa - Carro2"
+            android:theme="@style/colorsw" />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_margin="6pt">
+
+        <ImageView
+            android:id="@+id/imageView3"
+            android:layout_width="100dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/foto3" />
+
+        <Switch
+            android:id="@+id/switch3"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="5pt"
+            android:layout_marginTop="10pt"
+            android:text="Hermano - Carro3"
+            android:theme="@style/colorsw" />
+
+    </LinearLayout>
+
+
+</LinearLayout>

@@ -1,0 +1,13 @@
+<resources>
+    <dimen name="fab_margin">16dp</dimen>
+    <dimen name="margin_start_text">25pt</dimen>
+    <dimen name="margin_end_text">25pt</dimen>
+    <dimen name="margin_start_button">40pt</dimen>
+    <dimen name="margin_end_button">40pt</dimen>
+    <dimen name="margin_title">50dp</dimen>
+    <dimen name="size_title">24sp</dimen>
+    <dimen name="margin_top_little">10sp</dimen>
+
+
+
+</resources>
