@@ -1,4 +1,4 @@
-package com.epis.miplaca;
+package com.epis.miplaca.view;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -10,6 +10,8 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
+
+import com.epis.miplaca.R;
 
 public class CopiaSeguridad extends AppCompatActivity {
 
