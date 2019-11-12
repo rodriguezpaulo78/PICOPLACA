@@ -6,19 +6,26 @@ import android.os.Bundle;
 import android.view.Menu;
 import android.view.MenuItem;
 
-import android.widget.TableLayout;
 import android.widget.Toast;
 
-import java.util.ArrayList;
+import com.epis.miplaca.view.MainActivityViewImplementor;
 
 public class MainActivity extends AppCompatActivity {
+    MainActivityViewImplementor mvcView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
+        //setContentView(R.layout.activity_main);
+        mvcView = new MainActivityViewImplementor(MainActivity.this,null);
+        setContentView(mvcView.getRootView());
+        mvcView.initViews();
 
-
+    }
+    @Override
+    protected void onResume() {
+        super.onResume();
+        mvcView.bindDataToView();
     }
 
     @Override
