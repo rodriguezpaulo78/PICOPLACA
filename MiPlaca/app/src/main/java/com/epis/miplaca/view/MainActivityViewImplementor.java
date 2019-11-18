@@ -68,7 +68,8 @@ public class MainActivityViewImplementor implements MVCMainActivityView {
     @Override
     public void updateViewOnRegister(List<Placa> placa) {
         Log.v("MainActivityViewImplem", "View Button Register addPlaca exitosa");
-        Log.v("MainActivityViewImplem", placa.get(0).toString());
+        int size = placa.size();
+        Log.v("MainActivityViewImplem", placa.get(size-1).toString());
         //this.showAllToDos(misPlacas);
         clearEditTexts();
 
