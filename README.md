@@ -6,4 +6,8 @@ Modificación Isi
 Prueba1
 Prueba2
 ---------
+<<<<<<< HEAD
 Prueba Modulo 2 
+=======
+Prueba Modulo 2
+>>>>>>> prueba_modulo2
