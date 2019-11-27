@@ -48,6 +48,10 @@ public class MVCModelImplementor implements MVCModel {
     public boolean modifyPlaca(int id, String newToDoValuel) throws Exception {
         return false;
     }
+    public String listaPlacaResult() throws Exception {
+        return "Correcta Lista Placas";
+    }
+
 
     @Override
     public List<Placa> getAllPlaca() throws Exception {

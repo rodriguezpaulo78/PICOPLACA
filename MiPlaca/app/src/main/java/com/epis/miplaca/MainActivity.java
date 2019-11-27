@@ -8,19 +8,25 @@ import android.view.MenuItem;
 
 import android.widget.Toast;
 
+import com.epis.miplaca.controller.MVCController;
 import com.epis.miplaca.view.CopiaSeguridad;
 import com.epis.miplaca.view.ListarPlacas;
 import com.epis.miplaca.view.MainActivityViewImplementor;
 
 public class MainActivity extends AppCompatActivity {
     MainActivityViewImplementor mvcView;
+    MVCController controller;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         //setContentView(R.layout.activity_main);
         mvcView = new MainActivityViewImplementor(MainActivity.this,null);
+
+
         setContentView(mvcView.getRootView());
+        controller = mvcView.getMvcController();
+
         mvcView.initViews();
 
     }
@@ -42,6 +48,7 @@ public class MainActivity extends AppCompatActivity {
             case R.id.listar:
 
                 Intent intent = new Intent(MainActivity.this, ListarPlacas.class);
+
                 startActivityForResult(intent,0);
                 Toast.makeText(this,R.string.listar, Toast.LENGTH_LONG).show();
                 return(true);

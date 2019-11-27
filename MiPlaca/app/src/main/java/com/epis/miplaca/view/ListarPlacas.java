@@ -4,15 +4,21 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.ImageView;
 import android.widget.Toast;
 
 import com.epis.miplaca.MainActivity;
 import com.epis.miplaca.R;
+import com.epis.miplaca.controller.MVCController;
 
 public class ListarPlacas extends AppCompatActivity {
-
+    ImageView img;
+    String result = "";
+    MVCController controlador = null;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -20,7 +26,29 @@ public class ListarPlacas extends AppCompatActivity {
         Toolbar toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
+        controlador = MVCController.getControlador();
+        //controlador.setListarPlacas(this);
 
+
+        img = (ImageView) findViewById(R.id.imageView);
+        img.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                result = controlador.pruebaController();
+                Log.v("contenido result: ", result);
+                listarPlacas();
+                //controlador.getListarPlacas().listarPlacas();
+            }
+        });
+
+
+
+
+    }
+    public String listarPlacas() {
+        Log.v("final view listar placa", result);
+        Toast.makeText(this,result, Toast.LENGTH_LONG).show();
+        return "ListarPlaca";
     }
 
     @Override

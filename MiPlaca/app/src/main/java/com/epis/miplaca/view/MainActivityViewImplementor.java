@@ -30,7 +30,7 @@ public class MainActivityViewImplementor implements MVCMainActivityView {
     public MainActivityViewImplementor(Context context, ViewGroup viewGroup){
         rootView = LayoutInflater.from(context).inflate(R.layout.activity_main,viewGroup);
         mvcModel = new MVCModelImplementor(MyApplication.getToDoListDBAdapter());
-        mvcController = new MVCController(mvcModel,this);
+        mvcController = MVCController.getControlador(mvcModel,this);
     }
     @Override
     public void initViews() {
@@ -79,5 +79,7 @@ public class MainActivityViewImplementor implements MVCMainActivityView {
         placa.setText("");
     }
 
-
+    public MVCController getMvcController() {
+        return mvcController;
+    }
 }
