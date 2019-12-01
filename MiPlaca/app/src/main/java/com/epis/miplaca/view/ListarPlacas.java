@@ -34,8 +34,9 @@ public class ListarPlacas extends AppCompatActivity {
         img.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Log.v("vista 2 click: ", result);
                 result = controlador.pruebaController();
-                Log.v("contenido result: ", result);
+
                 listarPlacas();
                 //controlador.getListarPlacas().listarPlacas();
             }
@@ -46,7 +47,7 @@ public class ListarPlacas extends AppCompatActivity {
 
     }
     public String listarPlacas() {
-        Log.v("final view listar placa", result);
+        Log.v("vista 2 final", result);
         Toast.makeText(this,result, Toast.LENGTH_LONG).show();
         return "ListarPlaca";
     }

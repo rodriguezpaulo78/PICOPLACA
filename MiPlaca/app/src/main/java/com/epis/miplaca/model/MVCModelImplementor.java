@@ -49,6 +49,7 @@ public class MVCModelImplementor implements MVCModel {
         return false;
     }
     public String listaPlacaResult() throws Exception {
+        Log.v("vista 2 modelo: ","listaPlaca");
         return "Correcta Lista Placas";
     }
 

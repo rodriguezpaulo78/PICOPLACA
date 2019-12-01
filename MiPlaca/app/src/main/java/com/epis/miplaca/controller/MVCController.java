@@ -71,12 +71,13 @@ public class MVCController {
         String objeto = "hola";
         try{
             //mvcView.showAllToDos(mvcModel.getAllToDos());
+            Log.v("vista 2 controlador: ", objeto);
             objeto = mvcModel.listaPlacaResult();
-            Log.v("result contenido: ", objeto);
+
         }catch (Exception e){
             //mvcView.showErrorToast(e.getMessage());
         }
-        Log.v("contenido final: ", objeto);
+        Log.v("vista 2 controlador: ", objeto);
         return objeto;
     }
 }
