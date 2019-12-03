@@ -1,5 +1,6 @@
 package com.epis.miplaca.controller;
 
+import android.content.Context;
 import android.util.Log;
 import android.widget.Toast;
 
@@ -54,10 +55,10 @@ public class MVCController {
         }
     }
     //on Add Clicked
-    public void onRegisterButtonClicked(String placa, String alias){
+    public void onRegisterButtonClicked(Context context,String placa, String alias){
         try{
             Log.v(TAG, "Controller AddButtonRegister");
-            boolean sucess = mvcModel.addPlaca(placa,alias);
+            boolean sucess = mvcModel.addPlaca(context,placa,alias);
             if(sucess){
                 Log.v(TAG, "Regresando a Controller AddButtonRegister");
                 mvcView.updateViewOnRegister(mvcModel.getAllPlaca());
@@ -67,17 +68,21 @@ public class MVCController {
         }
     }
     //Screen Load
-    public String pruebaController(){
+    public String pruebaController(Context context){
         String objeto = "hola";
         try{
             //mvcView.showAllToDos(mvcModel.getAllToDos());
             Log.v("vista 2 controlador: ", objeto);
-            objeto = mvcModel.listaPlacaResult();
+            objeto = mvcModel.listaPlacaResult(context);
 
         }catch (Exception e){
             //mvcView.showErrorToast(e.getMessage());
         }
         Log.v("vista 2 controlador: ", objeto);
         return objeto;
+    }
+
+    public void fileListaPlaca(Context context) throws Exception {
+        mvcModel.fileListaPlaca(context);
     }
 }

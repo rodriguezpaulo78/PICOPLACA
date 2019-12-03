@@ -33,16 +33,20 @@ public class MainActivityViewImplementor implements MVCMainActivityView {
         mvcController = MVCController.getControlador(mvcModel,this);
     }
     @Override
-    public void initViews() {
+    public void initViews(final Context context) {
         placa = (EditText)rootView.findViewById(R.id.placa);
         alias = (EditText)rootView.findViewById(R.id.alias);
         registrar = (Button)rootView.findViewById(R.id.registrar);
-
+        try {
+            mvcController.fileListaPlaca(context);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
         registrar.setOnClickListener(new View.OnClickListener(){
             @Override
             public void onClick(View v) {
                 Log.v("MainActivityViewImplem", "View click en Button Register");
-                mvcController.onRegisterButtonClicked(placa.getText().toString(),alias.getText().toString());
+                mvcController.onRegisterButtonClicked(context,placa.getText().toString(),alias.getText().toString());
             }
         });
     }
