@@ -5,6 +5,7 @@ import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
 import android.view.Menu;
@@ -27,9 +28,17 @@ import com.google.android.gms.auth.api.signin.GoogleSignInClient;
 import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
+import com.google.android.material.navigation.NavigationView;
+import com.proyectofinal.picoplaca.Presenters.UsuarioImpl;
+import com.proyectofinal.picoplaca.Presenters.daoUsuario;
 import com.proyectofinal.picoplaca.R;
 
 public class HomeActivity extends AppCompatActivity {
+
+    //Datos inicio sesion alternativo
+    UsuarioImpl u;
+    daoUsuario dao;
+    int id = 0;
 
     private DrawerLayout drawer;
 
@@ -39,6 +48,12 @@ public class HomeActivity extends AppCompatActivity {
     TextView emailTV;
     TextView idTV;
     ImageView photoIV;
+
+    //Actualizar en Navigation Drawer
+    NavigationView navigationView;
+    TextView nav_user;
+    TextView nav_mail;
+    ImageView nav_image;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -60,6 +75,19 @@ public class HomeActivity extends AppCompatActivity {
         emailTV = findViewById(R.id.email);
         idTV = findViewById(R.id.id);
         photoIV = findViewById(R.id.photo);
+
+        //
+        navigationView = (NavigationView) findViewById(R.id.nav_view);
+        View hView = navigationView.getHeaderView(0);
+        nav_user = (TextView) hView.findViewById(R.id.name_user);
+        nav_mail = (TextView) hView.findViewById(R.id.mail_user);
+        nav_image = (ImageView) hView.findViewById(R.id.image_user);
+
+        //sesion
+        Bundle b = getIntent().getExtras();
+        id = b.getInt("Id");
+        dao = new daoUsuario(this);
+        u = dao.getUsuarioById(id);
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -83,7 +111,16 @@ public class HomeActivity extends AppCompatActivity {
             emailTV.setText("Email: "+personEmail);
             idTV.setText("ID: "+personId);
             Glide.with(this).load(personPhoto).into(photoIV);
+
+            //Navigation
+            nav_user.setText(personName);
+            nav_mail.setText(personEmail);
+            Glide.with(this).load(personPhoto).into(nav_image);
+
         }
+
+        nav_user.setText(u.getNombre());
+        nav_mail.setText(u.getCorreo());
 
         sign_out.setOnClickListener(new View.OnClickListener() {
             @Override

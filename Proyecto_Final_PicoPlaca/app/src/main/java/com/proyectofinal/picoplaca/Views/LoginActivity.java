@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ProgressBar;
 import android.widget.Toast;
@@ -20,13 +21,19 @@ import com.google.android.gms.tasks.Task;
 import com.proyectofinal.picoplaca.Interfaces.LoginPresenter;
 import com.proyectofinal.picoplaca.Interfaces.LoginView;
 import com.proyectofinal.picoplaca.Presenters.LoginPresenterImpl;
+import com.proyectofinal.picoplaca.Presenters.UsuarioImpl;
+import com.proyectofinal.picoplaca.Presenters.daoUsuario;
 import com.proyectofinal.picoplaca.R;
 
-public class LoginActivity extends AppCompatActivity implements LoginView {
+public class LoginActivity extends AppCompatActivity implements LoginView, View.OnClickListener{
 
     EditText etpass, etusername;
+    Button btn1,btn2;
+    daoUsuario dao;
     ProgressBar progressBar;
     private LoginPresenter presenter;
+
+    UsuarioImpl sesion;
 
     //LOGEO GOOGLE
     int RC_SIGN_IN = 0;
@@ -39,7 +46,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         setContentView(R.layout.login_activity);
         etusername = (EditText) findViewById(R.id.et_user);
         etpass = (EditText) findViewById(R.id.et_password);
+        btn1 = (Button) findViewById(R.id.buttonEntrar);
+        btn2 = (Button) findViewById(R.id.buttonRegistrar);
         progressBar = (ProgressBar) findViewById(R.id.progressBar);
+        dao = new daoUsuario(this);
+        //Inicio de sesion
+        btn1.setOnClickListener(this);
+        btn2.setOnClickListener(this);
 
         //implementar implements
         presenter = new LoginPresenterImpl(this);
@@ -65,6 +78,31 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
         });
     }
 
+    public void onClick(View v){
+        switch (v.getId()){
+            case R.id.buttonEntrar:
+                String u= etusername.getText().toString();
+                String p = etpass.getText().toString();
+                if(u.equals("")||p.equals("")){
+                    Toast.makeText(this,"Error, campos vacios", Toast.LENGTH_LONG).show();
+                }else if(dao.login(u,p)==1){
+                    UsuarioImpl ux = dao.getUsuario(u,p);
+                    Toast.makeText(this,"Datos CORRECTOS", Toast.LENGTH_LONG).show();
+                    Intent i2 = new Intent(LoginActivity.this, HomeActivity.class);
+                    i2.putExtra("Id", ux.getId());
+                    sesion = ux;
+                    startActivity(i2);
+                }else{
+                    Toast.makeText(this,"Usuario O PASSWORD INCORRECTO ", Toast.LENGTH_LONG).show();
+                }
+                break;
+            case R.id.buttonRegistrar:
+                Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
+                startActivity(i);
+                break;
+        }
+    }
+
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
         startActivityForResult(signInIntent, RC_SIGN_IN);
@@ -81,6 +119,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView {
             Task<GoogleSignInAccount> task = GoogleSignIn.getSignedInAccountFromIntent(data);
             handleSignInResult(task);
         }else{
+            //Si inicia por el otro metodo
             Log.i("a",null);
         }
     }
