@@ -27,7 +27,8 @@ public class MainActivity extends AppCompatActivity {
         setContentView(mvcView.getRootView());
         controller = mvcView.getMvcController();
 
-        mvcView.initViews();
+        mvcView.initViews(this);
+
 
     }
     @Override

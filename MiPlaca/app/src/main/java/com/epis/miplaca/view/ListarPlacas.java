@@ -35,7 +35,7 @@ public class ListarPlacas extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Log.v("vista 2 click: ", result);
-                result = controlador.pruebaController();
+                result = controlador.pruebaController(ListarPlacas.this);
 
                 listarPlacas();
                 //controlador.getListarPlacas().listarPlacas();
