@@ -4,18 +4,32 @@
     tools:showIn="navigation_view">
 
     <group android:checkableBehavior="single">
-        <item android:id="@+id/nav_message"
-            android:icon="@drawable/ic_abc"
-            android:title="message" />
+        <item android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home"
+            android:title="Inicio" />
+
+        <item android:id="@+id/nav_ajustes"
+            android:icon="@drawable/ic_ajustes"
+            android:title="Ajustes" />
     </group>
 
-    <item android:title="Colmmunicate">
+    <item android:title="Información">
 
         <menu>
             <item
-                android:id="@+id/nav_share"
-                android:icon="@drawable/ic_abc"
-                android:title="asdas" />
+                android:id="@+id/nav_copia"
+                android:icon="@drawable/ic_copia"
+                android:title="Copia de Seguridad" />
+
+            <item
+                android:id="@+id/nav_about"
+                android:icon="@drawable/ic_about"
+                android:title="Acerca de la Aplicación" />
+
+            <item
+                android:id="@+id/nav_salir"
+                android:icon="@drawable/ic_salir"
+                android:title="Cerrar Sesión" />
         </menu>
     </item>
 

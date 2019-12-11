@@ -4,16 +4,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
-import android.Manifest;
-import android.content.Context;
 import android.content.Intent;
-import android.content.pm.PackageManager;
-import android.location.LocationListener;
-import android.location.LocationManager;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
-import android.provider.Settings;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -22,9 +16,7 @@ import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.app.ActivityCompat;
 import androidx.core.view.GravityCompat;
 import androidx.drawerlayout.widget.DrawerLayout;
 
@@ -37,12 +29,11 @@ import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.android.gms.tasks.Task;
 import com.google.android.material.navigation.NavigationView;
-import com.proyectofinal.picoplaca.Interactors.Localizacion;
 import com.proyectofinal.picoplaca.Presenters.UsuarioImpl;
 import com.proyectofinal.picoplaca.Presenters.daoUsuario;
 import com.proyectofinal.picoplaca.R;
 
-public class HomeActivity extends AppCompatActivity {
+public class HomeActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
 
     //Datos inicio sesion alternativo
     UsuarioImpl u;
@@ -73,11 +64,19 @@ public class HomeActivity extends AppCompatActivity {
         setSupportActionBar(toolbar);
 
         drawer = findViewById(R.id.drawer_layout);
+        NavigationView navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar,
                 R.string.navigation_drawer_open, R.string.navigation_drawer_close);
         drawer.addDrawerListener(toggle);
         toggle.syncState();
+
+        if(savedInstanceState == null){
+            getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                    new AjustesFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_ajustes);
+        }
 
         sign_out = findViewById(R.id.log_out);
         nameTV = findViewById(R.id.name);
@@ -92,11 +91,7 @@ public class HomeActivity extends AppCompatActivity {
         nav_mail = (TextView) hView.findViewById(R.id.mail_user);
         nav_image = (ImageView) hView.findViewById(R.id.image_user);
 
-        //sesion
-        Bundle b = getIntent().getExtras();
-        id = b.getInt("Id");
-        dao = new daoUsuario(this);
-        u = dao.getUsuarioById(id);
+
 
         // Configure sign-in to request the user's ID, email address, and basic
         // profile. ID and basic profile are included in DEFAULT_SIGN_IN.
@@ -116,9 +111,9 @@ public class HomeActivity extends AppCompatActivity {
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
 
-            nameTV.setText("Name: " + personName);
-            emailTV.setText("Email: " + personEmail);
-            idTV.setText("ID: " + personId);
+            nameTV.setText("Name: "+personName);
+            emailTV.setText("Email: "+personEmail);
+            idTV.setText("ID: "+personId);
             Glide.with(this).load(personPhoto).into(photoIV);
 
             //Navigation
@@ -126,10 +121,19 @@ public class HomeActivity extends AppCompatActivity {
             nav_mail.setText(personEmail);
             Glide.with(this).load(personPhoto).into(nav_image);
 
+        }else{
+
+            //sesion
+            Bundle b = getIntent().getExtras();
+            id = b.getInt("Id");
+            dao = new daoUsuario(this);
+            u = dao.getUsuarioById(id);
+
+            nav_user.setText(u.getNombre());
+            nav_mail.setText(u.getCorreo());
         }
 
-        nav_user.setText(u.getNombre());
-        nav_mail.setText(u.getCorreo());
+
 
         sign_out.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -137,14 +141,28 @@ public class HomeActivity extends AppCompatActivity {
                 signOut();
             }
         });
+    }
 
-        //GPS
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
-        } else {
-            locationStart();
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()){
+            case R.id.nav_ajustes:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new AjustesFragment()).commit();
+                break;
+            case R.id.nav_copia:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new CopiaFragment()).commit();
+                break;
+            case R.id.nav_about:
+                Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+                break;
+            case R.id.nav_salir:
+                signOut();
+                break;
         }
-
+        drawer.closeDrawer(GravityCompat.START);
+        return true;
     }
 
     @Override
@@ -161,7 +179,7 @@ public class HomeActivity extends AppCompatActivity {
                 .addOnCompleteListener(this, new OnCompleteListener<Void>() {
                     @Override
                     public void onComplete(@NonNull Task<Void> task) {
-                        Toast.makeText(HomeActivity.this, "Successfully signed out", Toast.LENGTH_SHORT).show();
+                        Toast.makeText(HomeActivity.this,"Successfully signed out",Toast.LENGTH_SHORT).show();
                         startActivity(new Intent(HomeActivity.this, LoginActivity.class));
                         finish();
                     }
@@ -178,9 +196,6 @@ public class HomeActivity extends AppCompatActivity {
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.item1:
-                Toast.makeText(this, "Item 1 selected", Toast.LENGTH_SHORT).show();
-                return true;
             case R.id.item2:
                 Toast.makeText(this, "Item 2 selected", Toast.LENGTH_SHORT).show();
                 return true;
@@ -195,39 +210,6 @@ public class HomeActivity extends AppCompatActivity {
                 return true;
             default:
                 return super.onOptionsItemSelected(item);
-        }
-    }
-
-    private void locationStart() {
-        LocationManager mlocManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-        Localizacion Local = new Localizacion();
-        Local.setHomeActivity(this);
-        final boolean gpsEnabled = mlocManager.isProviderEnabled(LocationManager.GPS_PROVIDER);
-        if (!gpsEnabled) {
-            Intent settingsIntent = new Intent(Settings.ACTION_LOCATION_SOURCE_SETTINGS);
-            startActivity(settingsIntent);
-        }
-        if (ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(this, Manifest.permission.ACCESS_COARSE_LOCATION) != PackageManager.PERMISSION_GRANTED) {
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION,}, 1000);
-            return;
-        }
-        mlocManager.requestLocationUpdates(LocationManager.NETWORK_PROVIDER, 0, 0, (LocationListener) Local);
-        mlocManager.requestLocationUpdates(LocationManager.GPS_PROVIDER, 0, 0, (LocationListener) Local);
-
-        if (Local.alertaActiva()) {
-            //IR A AL FRAGMENT DE ALERTA
-            
-        } else {
-            //NO HACER NADA
-        }
-    }
-
-    public void onRequestPermissionsResult(int requestCode, String[] permissions, int[] grantResults) {
-        if (requestCode == 1000) {
-            if (grantResults[0] == PackageManager.PERMISSION_GRANTED) {
-                locationStart();
-                return;
-            }
         }
     }
 }

@@ -33,8 +33,6 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
     ProgressBar progressBar;
     private LoginPresenter presenter;
 
-    UsuarioImpl sesion;
-
     //LOGEO GOOGLE
     int RC_SIGN_IN = 0;
     SignInButton signInButton;
@@ -81,27 +79,33 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
     public void onClick(View v){
         switch (v.getId()){
             case R.id.buttonEntrar:
+
                 String u= etusername.getText().toString();
                 String p = etpass.getText().toString();
-                if(u.equals("")||p.equals("")){
+                if(u.equals("")&&p.equals("")){
                     Toast.makeText(this,"Error, campos vacios", Toast.LENGTH_LONG).show();
                 }else if(dao.login(u,p)==1){
                     UsuarioImpl ux = dao.getUsuario(u,p);
                     Toast.makeText(this,"Datos CORRECTOS", Toast.LENGTH_LONG).show();
                     Intent i2 = new Intent(LoginActivity.this, HomeActivity.class);
                     i2.putExtra("Id", ux.getId());
-                    sesion = ux;
                     startActivity(i2);
+                    finish();
+
                 }else{
                     Toast.makeText(this,"Usuario O PASSWORD INCORRECTO ", Toast.LENGTH_LONG).show();
                 }
                 break;
+
             case R.id.buttonRegistrar:
                 Intent i = new Intent(LoginActivity.this, RegisterActivity.class);
                 startActivity(i);
+                finish();
                 break;
         }
     }
+
+
 
     private void signIn() {
         Intent signInIntent = mGoogleSignInClient.getSignInIntent();
