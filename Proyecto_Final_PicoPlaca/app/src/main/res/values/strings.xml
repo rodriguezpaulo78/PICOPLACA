@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name">Proyecto_Final_PicoPlaca</string>
+    <string name="app_name">Pico Placa</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="blanco">#fff</string>
 
-    <string name="positive_popup_text_default">You have successfully</string>
-    <string name="positive_popup_title_default">Texto de about</string>
-    <string name="negative_popup_text_default">Titulo de Alerta</string>
-    <string name="negative_popup_title_default">Texto de Alerta </string>
+    <string name="positive_popup_text_default">Pico Placa es una aplicacion desarrollador por estudiantes de la carrera de Ingenieria de Sistemas de la UNSA.</string>
+    <string name="positive_popup_title_default">Acerca de Nosotros</string>
+    <string name="negative_popup_text_default">Estás por entrar a la zona de plaqueo...</string>
+    <string name="negative_popup_title_default">Alerta</string>
 
 </resources>

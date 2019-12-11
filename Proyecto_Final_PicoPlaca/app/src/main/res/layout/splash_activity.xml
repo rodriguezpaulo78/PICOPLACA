@@ -11,7 +11,7 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@drawable/splashscreen"
-        android:text="PICOPLACA AREQUIPA"
+        android:text="\n\n\nPico Placa \n Arequipa"
         android:textSize="40dp"
         android:textAlignment="center"
         android:textColor="#fff"/>

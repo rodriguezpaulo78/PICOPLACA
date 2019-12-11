@@ -8,19 +8,33 @@
 
 
     <LinearLayout
-        android:layout_width="wrap_content"
+        android:layout_width="307dp"
         android:layout_height="wrap_content"
         android:layout_marginStart="@dimen/margin_start_text"
+        android:layout_marginTop="10dp"
         android:layout_marginEnd="@dimen/margin_end_text"
         android:orientation="vertical">
 
         <TextView
-            android:id="@+id/textView6"
+            android:id="@+id/textView1"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ayuda"
             android:layout_marginTop="15dp"
+            android:text="PICO Y PLACA AREQUIPA"
+            android:textAlignment="center"
+            android:textSize="20dp"
             android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="12/12/2019"
+            android:textAlignment="center"
+            android:textSize="15dp"
+
+            android:textStyle="bold" />
+
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -32,28 +46,51 @@
                 android:layout_width="55dp"
                 android:layout_height="55dp"
                 android:layout_marginTop="@dimen/margin_top_little"
-                app:srcCompat="@drawable/ic_help_black_24dp" />
+                app:srcCompat="@drawable/ic_pan_tool_black_24dp" />
 
             <TextView
                 android:id="@+id/textView7"
-                android:layout_width="wrap_content"
+                android:layout_width="239dp"
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5sp"
                 android:layout_marginTop="@dimen/margin_top_little"
-                android:text="Pulsa aqui para obtener informacion de la aplicación"
+                android:text="Miercoles: \n Placas restringidas:"
                 android:textSize="17dp"
                 android:textStyle="italic" />
 
+
         </LinearLayout>
 
-        <Button
-            android:id="@+id/button3"
+        <TextView
+            android:id="@+id/textView3"
             android:layout_width="match_parent"
-            android:layout_height="27dp"
-            android:layout_marginTop="@dimen/margin_top_little"
-            android:background="@drawable/shape"
-            android:text="Ayuda"
-            android:textColor="#ffffff" />
+            android:layout_height="wrap_content"
+            android:textColor="@color/colorRed"
+            android:text="4 - 5"
+            android:textAlignment="center"
+            android:textSize="60dp"
+
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/textView4"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:text="Lista de Placas"
+
+            android:textSize="20dp"
+            android:textStyle="bold" />
+
+        <ListView
+            android:id="@+id/ListPlacas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+
+
+        </ListView>
 
     </LinearLayout>
+
 </LinearLayout>

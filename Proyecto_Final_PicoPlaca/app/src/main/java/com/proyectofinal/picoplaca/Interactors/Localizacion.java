@@ -38,7 +38,6 @@ public class Localizacion implements LocationListener {
     }
 
     public boolean alertaG(double latitude, double longitude) {
-        Poligono unsa = new Poligono(-16.40000, -71.522587, -16.404086, -71.526002);
         Poligono plazaArm = new Poligono(-16.405879, -71.547012, -16.398160, -71.523065);
         if (plazaArm.contains(latitude, longitude)) {
             return true;

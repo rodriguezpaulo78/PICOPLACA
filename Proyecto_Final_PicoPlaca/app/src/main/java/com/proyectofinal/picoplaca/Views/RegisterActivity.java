@@ -46,7 +46,7 @@ public class RegisterActivity extends AppCompatActivity implements View.OnClickL
 
                 //Validar los valores
                 if(!u.isNull()){
-                    Toast.makeText(this,"ERROR, CAMPOS VACIOS",Toast.LENGTH_LONG).show();
+                    Toast.makeText(this,"Error, Campos vacios",Toast.LENGTH_LONG).show();
 
                 }else if(dao.insertUsuario(u)){
                     Toast.makeText(this,"Registro exitoso",Toast.LENGTH_LONG).show();
