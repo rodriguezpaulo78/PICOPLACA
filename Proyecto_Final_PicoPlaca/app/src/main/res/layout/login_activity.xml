@@ -1,46 +1,77 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:padding="20dp"
     tools:context=".Views.LoginActivity">
 
-    <LinearLayout
-        android:orientation="vertical"
-        android:layout_gravity="center"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content" >
 
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:src="@drawable/f"
+        android:scaleType="centerCrop"
+        />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:orientation="vertical"
+        android:background="#d8000000"
+        android:gravity="center"
+        android:layout_height="match_parent">
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="LOGIN"
+            android:textColor="#fff"
             android:gravity="center"
-            android:textSize="30dp"
-            android:textColor="@color/colorPrimary"/>
+            android:textSize="30dp"/>
 
         <EditText
             android:id="@+id/et_user"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@color/azul"
+            android:hint="user_name"
             android:inputType="textPersonName"
-            android:hint="user_name" />
+            android:textColor="#fff"
+            android:textColorHighlight="@color/azul"
+            android:textColorHint="#fff"
+            android:textColorLink="@color/azul"
+            android:textCursorDrawable="@color/azul" />
         <EditText
             android:id="@+id/et_password"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:backgroundTint="@color/azul"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:inputType="textPassword"
-            android:hint="password" />
+            android:hint="password"
+            android:textColor="#fff"
+            android:textColorHighlight="@color/azul"
+            android:textColorHint="#fff"
+            android:textColorLink="@color/azul"
+            android:textCursorDrawable="@color/azul"/>
 
         <Button
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:id="@+id/button"
+            android:background="@drawable/boton_azul"
+            android:layout_marginLeft="20dp"
+            android:layout_marginRight="20dp"
+            android:textColor="#fff"
+            android:elevation="5dp"
+            android:layout_marginBottom="30dp"
+            android:textSize="16dp"
             android:text="Login"
-            android:onClick="validacion"/>
+            android:onClick="validacion"
+            android:textAllCaps="false"/>
 
         <ProgressBar
             android:layout_width="60dp"
@@ -51,14 +82,18 @@
             android:background="@color/colorPrimary"
             android:visibility="gone"/>
 
-
+        <com.google.android.gms.common.SignInButton
+            android:id="@+id/sign_in_button"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerHorizontal="true"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="20dp"
+            android:layout_marginLeft="20dp"
+            android:layout_marginBottom="30dp"
+            android:elevation="5dp"
+            android:textAllCaps="false"
+            android:textColor="#fff"
+            android:textSize="16dp" />
     </LinearLayout>
-
-    <com.google.android.gms.common.SignInButton
-        android:id="@+id/sign_in_button"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_centerHorizontal="true"
-        android:layout_centerVertical="true"/>
-
-</LinearLayout>
+</RelativeLayout>
