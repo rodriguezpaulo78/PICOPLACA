@@ -3,7 +3,7 @@
     android:orientation="vertical"
     android:layout_width="match_parent"
     android:layout_height="176dp"
-    android:background="@color/colorAccent"
+    android:background="@color/colorPrimary"
     android:gravity="bottom"
     android:padding="16dp"
     android:theme="@style/ThemeOverlay.AppCompat.Dark">
@@ -11,7 +11,7 @@
     <ImageView
         android:layout_width="80dp"
         android:layout_height="80dp"
-        android:id="@+id/image_user"
+        android:id="@drawable/icono"
         android:src="@mipmap/ic_launcher_round" />
 
     <TextView
@@ -20,12 +20,14 @@
         android:paddingTop="8dp"
         android:id="@+id/name_user"
         android:text="Coding in Flow"
+        android:textColor="@color/white"
         android:textAppearance="@style/TextAppearance.AppCompat.Body1" />
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:id="@+id/mail_user"
+        android:textColor="@color/white"
         android:text="info@codinginflow.com" />
 
 </LinearLayout>

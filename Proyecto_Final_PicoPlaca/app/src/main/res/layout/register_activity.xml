@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".Views.RegisterActivity"
-    android:background="#202732">
+    android:background="#D7202732">
 
     <ImageView
         android:id="@+id/imageView"
@@ -19,18 +19,6 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
         app:srcCompat="@drawable/icono" />
-
-    <TextView
-        android:id="@+id/textView2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_marginTop="12dp"
-        android:text="Pico Placa Arequipa"
-        android:textSize="20dp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
     <TextView
         android:id="@+id/textView"
@@ -45,33 +33,63 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/imageView" />
 
+    <TextView
+        android:id="@+id/textView2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="12dp"
+        android:text="Pico Placa Arequipa"
+        android:textSize="20dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/imageView" />
+
     <EditText
         android:id="@+id/reg_user"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
-        android:hint="user_name"
+        android:hint="nombre de usuario"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="20dp" />
+        tools:layout_editor_absoluteX="20dp"
+        android:textColor= "@color/white"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="#6BFFFFFF"
+        android:textColorLink="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"/>
 
     <EditText
         android:id="@+id/reg_pass"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="password"
+        android:hint="contraseña"
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@+id/reg_user"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="16dp"
+        android:textColor= "@color/white"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="#6BFFFFFF"
+        android:textColorLink="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"/>
 
     <EditText
         android:id="@+id/reg_nom"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:hint="NOMBRE"
+        android:hint="nombre"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/reg_pass"
-        tools:layout_editor_absoluteX="24dp" />
+        tools:layout_editor_absoluteX="24dp"
+        android:textColor= "@color/white"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="#6BFFFFFF"
+        android:textColorLink="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"/>
 
     <EditText
         android:id="@+id/reg_mail"
@@ -80,7 +98,13 @@
         android:hint="correo electronico"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/reg_nom"
-        tools:layout_editor_absoluteX="20dp" />
+        tools:layout_editor_absoluteX="20dp"
+        android:textColor= "@color/white"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="#6BFFFFFF"
+        android:textColorLink="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary" />
 
     <Button
         android:id="@+id/buttonRegRegistrar"
@@ -88,6 +112,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="20dp"
         android:background="@drawable/button_rounded"
+        android:textColor= "@color/white"
         android:text="REGISTRAR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.512"
@@ -100,6 +125,7 @@
         android:layout_height="42dp"
         android:layout_marginTop="12dp"
         android:background="@drawable/button_rounded_border"
+        android:textColor= "@color/white"
         android:text="CANCELAR"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.495"

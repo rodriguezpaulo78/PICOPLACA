@@ -81,7 +81,7 @@ public class HomeActivity extends AppCompatActivity {
         View hView = navigationView.getHeaderView(0);
         nav_user = (TextView) hView.findViewById(R.id.name_user);
         nav_mail = (TextView) hView.findViewById(R.id.mail_user);
-        nav_image = (ImageView) hView.findViewById(R.id.image_user);
+        nav_image = (ImageView) hView.findViewById(R.id.imageView);
 
         //sesion
         Bundle b = getIntent().getExtras();

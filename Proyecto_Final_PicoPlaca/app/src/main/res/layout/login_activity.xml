@@ -7,7 +7,7 @@
     android:orientation="vertical"
     android:padding="20dp"
     tools:context=".Views.LoginActivity"
-    android:background="#202732">
+    android:background="#D7202732">
 
     <ImageView
         android:id="@+id/imageView"
@@ -37,6 +37,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="52dp"
+
         android:gravity="center"
         android:text="LOGIN"
         android:textColor="@color/colorPrimary"
@@ -50,20 +51,32 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="20dp"
+        android:textColor= "@color/white"
         android:hint="user_name"
         android:inputType="textPersonName"
         app:layout_constraintTop_toBottomOf="@+id/textView"
-        tools:layout_editor_absoluteX="20dp" />
+        tools:layout_editor_absoluteX="20dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="#6BFFFFFF"
+        android:textColorLink="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"/>
 
     <EditText
         android:id="@+id/et_password"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginTop="8dp"
+        android:textColor= "@color/white"
         android:hint="password"
         android:inputType="textPassword"
         app:layout_constraintTop_toBottomOf="@+id/et_user"
-        tools:layout_editor_absoluteX="16dp" />
+        tools:layout_editor_absoluteX="16dp"
+        android:backgroundTint="@color/colorPrimary"
+        android:textColorHighlight="@color/colorPrimary"
+        android:textColorHint="#6BFFFFFF"
+        android:textColorLink="@color/colorPrimary"
+        android:textCursorDrawable="@color/colorPrimary"/>
 
     <Button
         android:id="@+id/buttonEntrar"
@@ -71,6 +84,7 @@
         android:layout_height="45dp"
         android:layout_marginTop="24dp"
         android:background="@drawable/button_rounded"
+        android:textColor= "@color/white"
         android:onClick="validacion"
         android:text="Login"
         app:layout_constraintEnd_toEndOf="parent"
@@ -84,6 +98,7 @@
         android:layout_height="42dp"
         android:layout_marginTop="7dp"
         android:background="@drawable/button_rounded_border"
+        android:textColor= "@color/white"
         android:text="Register"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.521"
@@ -118,6 +133,7 @@
         android:id="@+id/textView3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:textColor= "@color/white"
         android:text="O también accede con tu cuenta de Google."
         app:layout_constraintBottom_toTopOf="@+id/sign_in_button"
         app:layout_constraintEnd_toEndOf="parent"
