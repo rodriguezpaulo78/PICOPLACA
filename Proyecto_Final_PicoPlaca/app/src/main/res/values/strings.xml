@@ -3,4 +3,10 @@
     <string name="navigation_drawer_open">Open navigation drawer</string>
     <string name="navigation_drawer_close">Close navigation drawer</string>
     <string name="blanco">#fff</string>
+
+    <string name="positive_popup_text_default">You have successfully</string>
+    <string name="positive_popup_title_default">Texto de about</string>
+    <string name="negative_popup_text_default">Titulo de Alerta</string>
+    <string name="negative_popup_title_default">Texto de Alerta </string>
+
 </resources>

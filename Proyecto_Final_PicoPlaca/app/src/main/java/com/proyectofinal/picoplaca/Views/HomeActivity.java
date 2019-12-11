@@ -4,7 +4,12 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.app.AlertDialog;
+import android.app.Dialog;
+import android.content.DialogInterface;
 import android.content.Intent;
+import android.graphics.Color;
+import android.graphics.drawable.ColorDrawable;
 import android.media.Image;
 import android.net.Uri;
 import android.os.Bundle;
@@ -40,6 +45,12 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     daoUsuario dao;
     int id = 0;
 
+    //Dialog about
+    Dialog myDialog;
+    ImageView closeAboutImg;
+    Button btnAccept;
+    TextView titleTv, messageTv;
+
     private DrawerLayout drawer;
 
     GoogleSignInClient mGoogleSignInClient;
@@ -74,15 +85,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
 
         if(savedInstanceState == null){
             getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
-                    new AjustesFragment()).commit();
-            navigationView.setCheckedItem(R.id.nav_ajustes);
+                    new HomeFragment()).commit();
+            navigationView.setCheckedItem(R.id.nav_home);
         }
 
+        myDialog = new Dialog(this);
+
+        /*
         sign_out = findViewById(R.id.log_out);
         nameTV = findViewById(R.id.name);
         emailTV = findViewById(R.id.email);
         idTV = findViewById(R.id.id);
         photoIV = findViewById(R.id.photo);
+        */
 
         //
         navigationView = (NavigationView) findViewById(R.id.nav_view);
@@ -111,16 +126,20 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
             String personId = acct.getId();
             Uri personPhoto = acct.getPhotoUrl();
 
+            /*
             nameTV.setText("Name: "+personName);
             emailTV.setText("Email: "+personEmail);
             idTV.setText("ID: "+personId);
             Glide.with(this).load(personPhoto).into(photoIV);
+            */
 
             //Navigation
             nav_user.setText(personName);
             nav_mail.setText(personEmail);
             Glide.with(this).load(personPhoto).into(nav_image);
 
+
+            u = new UsuarioImpl("","",personName,personEmail);
         }else{
 
             //sesion
@@ -134,18 +153,25 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
         }
 
 
-
+        /*
         sign_out.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
                 signOut();
             }
         });
+         */
     }
+
+
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         switch (menuItem.getItemId()){
+            case R.id.nav_home:
+                getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
+                        new HomeFragment()).commit();
+                break;
             case R.id.nav_ajustes:
                 getSupportFragmentManager().beginTransaction().replace(R.id.fragment_container,
                         new AjustesFragment()).commit();
@@ -155,14 +181,57 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
                         new CopiaFragment()).commit();
                 break;
             case R.id.nav_about:
-                Toast.makeText(this, "About", Toast.LENGTH_SHORT).show();
+
+                showAbout();
+
                 break;
             case R.id.nav_salir:
-                signOut();
+                new AlertDialog.Builder(this)
+                        .setTitle("Confirmación de Salida")
+                        .setMessage("Esta seguro de que desea salir de su sesion")
+                        .setPositiveButton(android.R.string.yes, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                signOut();
+                            }
+                        })
+                        .setNegativeButton(android.R.string.no, new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+
+                            }
+                        })
+                        .show();
                 break;
         }
         drawer.closeDrawer(GravityCompat.START);
         return true;
+    }
+
+    //Mostrar CUSTOM DIALOG BOX
+    public void showAbout(){
+        myDialog.setContentView(R.layout.about);
+        closeAboutImg = (ImageView) myDialog.findViewById(R.id.closeAbout);
+        btnAccept = (Button) myDialog.findViewById(R.id.btnAceptar);
+        titleTv = (TextView) myDialog.findViewById(R.id.titleAbout);
+        messageTv = (TextView) myDialog.findViewById(R.id.messageAbout);
+
+        btnAccept.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
+
+        closeAboutImg.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                myDialog.dismiss();
+            }
+        });
+
+        myDialog.getWindow().setBackgroundDrawable(new ColorDrawable(Color.TRANSPARENT));
+        myDialog.show();
     }
 
     @Override

@@ -12,7 +12,7 @@ import com.proyectofinal.picoplaca.R;
 
 public class SplashActivity extends AppCompatActivity {
 
-    private final int DURACION_SPLASH = 3000;
+    private final int DURACION_SPLASH = 4000;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
