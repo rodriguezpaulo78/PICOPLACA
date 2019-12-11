@@ -87,13 +87,13 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
                     Toast.makeText(this,"Error, campos vacios", Toast.LENGTH_LONG).show();
                 }else if(dao.login(u,p)==1){
                     UsuarioImpl ux = dao.getUsuario(u,p);
-                    Toast.makeText(this,"Datos CORRECTOS", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this,"Datos correctos", Toast.LENGTH_LONG).show();
                     Intent i2 = new Intent(LoginActivity.this, HomeActivity.class);
                     i2.putExtra("Id", ux.getId());
                     sesion = ux;
                     startActivity(i2);
                 }else{
-                    Toast.makeText(this,"Usuario O PASSWORD INCORRECTO ", Toast.LENGTH_LONG).show();
+                    Toast.makeText(this,"Usuario o contraseña incorrectos ", Toast.LENGTH_LONG).show();
                 }
                 break;
             case R.id.buttonRegistrar:
@@ -159,7 +159,7 @@ public class LoginActivity extends AppCompatActivity implements LoginView, View.
     }
 
     public void setErrorUser(){
-        etusername.setError("CAMPO OBLIGATORIO");
+        etusername.setError("Campo obligatorio");
     }
 
     public void setErrorPassword(){
