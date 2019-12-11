@@ -265,16 +265,19 @@ public class HomeActivity extends AppCompatActivity implements NavigationView.On
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         switch (item.getItemId()) {
-            case R.id.item2:
+            case R.id.ajustes:
                 Toast.makeText(this, "Item 2 selected", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.item3:
+            case R.id.acerca:
+                Toast.makeText(this, "Item 2 selected", Toast.LENGTH_SHORT).show();
+                return true;
+            case R.id.placas:
                 Toast.makeText(this, "Item 3 selected", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.subitem1:
+            case R.id.registrar:
                 Toast.makeText(this, "Sub Item 1 selected", Toast.LENGTH_SHORT).show();
                 return true;
-            case R.id.subitem2:
+            case R.id.borrar:
                 Toast.makeText(this, "Sub Item 2 selected", Toast.LENGTH_SHORT).show();
                 return true;
             default:

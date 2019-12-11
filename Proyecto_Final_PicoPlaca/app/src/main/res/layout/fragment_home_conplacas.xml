@@ -18,31 +18,21 @@
             android:id="@+id/textView6"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginTop="90dp"
-            android:textSize="30dp"
-            android:text="HOLA..."
+            android:text="Ayuda"
+            android:layout_marginTop="15dp"
             android:textStyle="bold" />
-
-        <LinearLayout
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:gravity="center">
-
-            <ImageView
-                android:id="@+id/imageView3"
-                android:layout_width="180dp"
-                android:layout_height="180dp"
-                android:layout_marginTop="@dimen/margin_top_little"
-                app:srcCompat="@drawable/bienvenida" />
-
-        </LinearLayout>
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:orientation="horizontal">
 
-
+            <ImageView
+                android:id="@+id/imageView3"
+                android:layout_width="55dp"
+                android:layout_height="55dp"
+                android:layout_marginTop="@dimen/margin_top_little"
+                app:srcCompat="@drawable/ic_help_black_24dp" />
 
             <TextView
                 android:id="@+id/textView7"
@@ -50,9 +40,8 @@
                 android:layout_height="wrap_content"
                 android:layout_marginStart="5sp"
                 android:layout_marginTop="@dimen/margin_top_little"
-                android:textAlignment="center"
-                android:text="Parece que aún no tienes placas registradas, empieza registrando una..."
-                android:textSize="35dp"
+                android:text="Pulsa aqui para obtener informacion de la aplicación"
+                android:textSize="17dp"
                 android:textStyle="italic" />
 
         </LinearLayout>
@@ -60,14 +49,11 @@
         <Button
             android:id="@+id/button3"
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
+            android:layout_height="27dp"
             android:layout_marginTop="@dimen/margin_top_little"
-            android:textSize="20sp"
-            android:background="@color/colorRedDark"
-            android:text="Registrar Mi Placa"
+            android:background="@drawable/shape"
+            android:text="Ayuda"
             android:textColor="#ffffff" />
 
     </LinearLayout>
-
-
 </LinearLayout>
